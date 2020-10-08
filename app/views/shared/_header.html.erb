@@ -1,1 +1,58 @@
-<h1>Yes</h1>
+<section class="hero is-dark is-small">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+
+          <%= link_to root_path, class:"navbar-item" do |l|%>
+            <img src="https://cdn.svgporn.com/logos/rubygems.svg" alt="Logo">
+            <span class="navbar-item">
+            Ruby credits
+            </span>
+          <% end %>
+
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+
+            <span class="navbar-item">
+              <%= link_to "Add subject", new_subject_path, class:"button is-primary" %>
+            </span>
+            <a class="navbar-item">
+              Documentation
+            </a>
+            <span class="navbar-item">
+              <a class="button is-primary is-inverted">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Download</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Hero content: will be in the middle -->
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+        <% if content_for(:title) %>
+          <%= content_for(:title) %>
+        <% else %>
+          Ruby credits
+        <% end %>
+      </h1>
+
+    </div>
+  </div>
+
+</section>
