@@ -63,6 +63,8 @@ GEM
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     builder (3.2.4)
+    bulma-rails (0.8.2)
+      sassc (~> 2.0)
     byebug (11.1.3)
     capybara (3.33.0)
       addressable
@@ -201,6 +203,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
+  bulma-rails (~> 0.8.0)
   byebug
   capybara (>= 2.15)
   jbuilder (~> 2.7)
