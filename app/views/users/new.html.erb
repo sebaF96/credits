@@ -1,25 +1,30 @@
+<% content_for(:title) do %>
+  Sign up
+<% end %>
+
 <div class="signup">
   <div class="container">
     <%= bootstrap_form_for(@user) do |f| %>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
           <%= f.text_field :name, required: true %>
 
           <%= f.text_field :email, required: true %>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <%= f.password_field :password, required: true %>
 
           <%= f.password_field :password_confirmation, required: true %>
         </div>
+        <div class="col-md-2"></div>
       </div>
 
       <div class="row">
-        <div class="col-md-10"></div>
-        <div class="col-md-2" style="text-align: right">
-          <%= f.submit "Sign up", class: "btn btn-success"%>
+        <div class="col-md-10" style="text-align: right">
+          <%= f.submit "Sign up", class: "btn btn-success btn-lg"%>
         </div>
       </div>
 
