@@ -1,3 +1,31 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+div.jumbotron {
+  background-color: #212529;
+  color: white;
+}
+
+#main-jumbotron {
+  max-height: 338px;
+}
+
+#main-jumbotron h1 {
+  font-size: 120px;
+  color: #43d543;
+  text-align: center;
+}
+
+#main-jumbotron p {
+  text-align: center;
+  font-size: 50px
+}
+
+th {
+  font-weight: bold;
+}
+
+tr > td {
+  font-size: small;
+}
