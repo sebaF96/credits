@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_200244) do
+ActiveRecord::Schema.define(version: 2020_10_09_065710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exams", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "subject_id"
+    t.integer "qualification"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id"], name: "index_exams_on_subject_id"
+    t.index ["user_id"], name: "index_exams_on_user_id"
+  end
 
   create_table "subjects", force: :cascade do |t|
     t.string "code"
@@ -22,6 +32,13 @@ ActiveRecord::Schema.define(version: 2020_10_08_200244) do
     t.string "year"
     t.boolean "passed"
     t.integer "qualification"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

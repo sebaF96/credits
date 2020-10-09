@@ -18,3 +18,5 @@ Subject.create(code: "0006", name: "Fisica I", credits: 7, year: 1, passed: fals
 Subject.create(code: "0007", name: "Algebra y Geom. Analitica", credits: 5, year: 1, passed: false, qualification: nil)
 Subject.create(code: "0008", name: "Ingles Tecnico", credits: 3, year: 1, passed: false, qualification: nil)
 Subject.create(code: "0009", name: "Informatica", credits: 7, year: 1, passed: false, qualification: nil)
+
+User.create(name: "Seba", email: "sebaf@mm.com")
