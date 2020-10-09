@@ -1,3 +1,14 @@
-// Place all the styles related to the Subjects controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+
+nav.navbar-dark {
+  background-color: #222;
+}
+
+ul > li > a.btn-dark {
+  background-color: #222;
+  border: none;
+}
+
+ul > li > a.btn-dark:hover {
+  background-color: #980905;
+
+}
