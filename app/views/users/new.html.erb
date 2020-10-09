@@ -1,27 +1,28 @@
 <div class="signup">
   <div class="container">
     <%= bootstrap_form_for(@user) do |f| %>
-      <div class="field">
-        <%= f.text_field :name %>
-      </div>
-      <div class="field">
 
-        <%= f.text_field :email %>
-      </div>
-      <div class="field">
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.text_field :name, required: true %>
 
-        <%= f.password_field :password %>
-      </div>
+          <%= f.text_field :email, required: true %>
 
-      <div class="field">
+        </div>
+        <div class="col-md-6">
+          <%= f.password_field :password, required: true %>
 
-        <%= f.password_field :password_confirmation %>
+          <%= f.password_field :password_confirmation, required: true %>
+        </div>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Create", class: "btn-submit" %>
+      <div class="row">
+        <div class="col-md-10"></div>
+        <div class="col-md-2" style="text-align: right">
+          <%= f.submit "Sign up", class: "btn btn-success"%>
+        </div>
       </div>
+
     <% end %>
-
   </div>
 </div>
