@@ -4,7 +4,7 @@ class SubjectsController < ApplicationController
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+      @subjects = Subject.all.sort {|a, b| a.code <=> b.code}
   end
 
   # GET /subjects/1
