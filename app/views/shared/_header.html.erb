@@ -1,73 +1,45 @@
-<section class="hero is-dark is-small">
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 30px">
 
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <img src="https://cdn.svgporn.com/logos/ruby.svg" width="30" height="30" alt="Logo">
+    Ruby Credits
+  <% end %>
 
-          <%= link_to root_path, class: "navbar-item" do %>
-            <img src="https://cdn.svgporn.com/logos/ruby.svg" alt="Logo">
-            <span class="navbar-item">
-            Ruby credits
-            </span>
-          <% end %>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#rb-navbar" aria-controls="rb-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-          <a role="button" class="navbar-burger burger " aria-label="menu" aria-expanded="false" data-target="navbarMenuHeroA">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-
-        </div>
-
-        <div id="navbarMenuHeroA" class="navbar-menu">
-
-          <div class="navbar-start">
-            <a class="navbar-item">
-              Home
-            </a>
-
-            <a class="navbar-item">
-              Documentation
-            </a>
-          </div>
-
-          <div class="navbar-end">
-
-            <span class="navbar-item">
-              <%= link_to "Add subject", new_subject_path, class: "button is-primary" %>
-            </span>
-            <a class="navbar-item">
-              Documentation
-            </a>
-            <span class="navbar-item">
-              <a class="button is-primary is-inverted">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-  </div>
-
-  <!-- Hero content: will be in the middle -->
-  <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">
-        <% if content_for(:title) %>
-          <%= content_for(:title) %>
-        <% else %>
-          Ruby credits
+  <div class="collapse navbar-collapse" id="rb-navbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to new_subject_path, class: "btn btn-dark" do %>
+          <span class="fa fa-address-book"></span>
+          Add Subject
         <% end %>
-      </h1>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-dark" href="#"> <span class="fa fa-id-card"></span> Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="btn btn-dark" href="#"> <span class="fa fa-cog"></span> Disabled</a>
+      </li>
+    </ul>
 
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+
+      <li style="margin-right: 6px">
+        <a href="#" class="btn btn-dark">
+          <span class="fa fa-user-plus"></span>
+          Login
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="btn btn-dark">
+          <span class="fa fa-sign-in"></span>
+          Sign Up
+        </a>
+      </li>
+    </ul>
   </div>
-
-</section>
+</nav>
