@@ -1,0 +1,22 @@
+<div class="signup">
+  <div class="container">
+    <%= bootstrap_form_for(@user) do |f| %>
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+
+        <%= f.password_field :password %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Create", class: "btn-submit" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

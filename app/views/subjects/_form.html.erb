@@ -17,11 +17,10 @@
     <div class="col-md-6">
       <%= form.text_field :code %>
       <%= form.text_field :name %>
-      <%= form.number_field :credits %>
+      <%= form.select :credits, [[3, 3], [4, 4], [5, 5], [6, 6], [7, 7]] %>
     </div>
     <div class="col-md-6">
-      <%= form.text_field :year %>
-      <%= form.select :qualification, [[6, 6], [7, 7], [8, 8], [9, 9], [10, 10]] %>
+      <%= form.select :year, [["Primero", 1], ["Segundo", 2], ["Tercero", 2], ["Cuarto", 4], ["Quinto", 5]] %>
     </div>
   </div>
 

@@ -5,8 +5,7 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :credits
       t.string :year
-      t.boolean :passed
-      t.integer :qualification
+
 
       t.timestamps
     end

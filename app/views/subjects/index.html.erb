@@ -9,8 +9,6 @@
       <th>Name</th>
       <th>Credits</th>
       <th>Year</th>
-      <th>Passed</th>
-      <th>Qualification</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,8 +20,6 @@
         <td><%= subject.name %></td>
         <td><%= subject.credits %></td>
         <td><%= subject.year %></td>
-        <td><%= subject.passed %></td>
-        <td><%= subject.qualification %></td>
         <td><%= link_to subject, class: "btn btn-primary" do %> <span class="fa fa-book"></span> Show <% end %></td>
         <td><%= link_to edit_subject_path(subject), class: "btn btn-dark" do %> <span class="fa fa-edit"></span> Edit <% end %></td>
         <td><%= link_to subject, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %> <span class="fa fa-trash"></span> Delete <% end %></td>

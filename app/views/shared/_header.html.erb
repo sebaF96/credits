@@ -27,19 +27,39 @@
 
     <ul class="nav navbar-nav navbar-right">
 
-      <li style="margin-right: 6px">
-        <a href="#" class="btn btn-dark">
-          <span class="fa fa-user-plus"></span>
-          Login
-        </a>
-      </li>
+      <% if current_user %>
 
-      <li>
-        <a href="#" class="btn btn-dark">
-          <span class="fa fa-sign-in"></span>
-          Sign Up
-        </a>
-      </li>
+        <span class="navbar-text" style="margin-right: 6px; color: white">
+        <%= current_user.email %>
+        </span>
+        <li style="margin-right: 6px">
+          <%= link_to logout_path, class: "btn btn-dark" do %>
+            <span class="fa fa-sign-out"></span>
+            Logout
+          <% end %>
+        </li>
+
+      <% else %>
+
+        <li style="margin-right: 6px">
+
+          <%= link_to login_path, class: "btn btn-dark" do %>
+            <span class="fa fa-sign-in"></span>
+            Login
+          <% end %>
+
+        </li>
+
+        <li>
+
+          <%= link_to signup_path, class: "btn btn-dark" do %>
+            <span class="fa fa-user-plus"></span>
+            Sign up
+          <% end %>
+
+        </li>
+
+      <% end %>
     </ul>
   </div>
 </nav>
