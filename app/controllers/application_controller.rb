@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
+  def logout_required
+    redirect_to '/' if current_user
+  end
+
+  def admin_required
+    redirect_to '/' unless current_user and current_user.email == ENV["ADMIN_EMAIL"]
+  end
+
 end

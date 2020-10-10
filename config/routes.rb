@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :subjects
-  resources :users
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :home
+  resources :users, only: [:index, :new, :create, :show]
 
+  # Sessions
   get "signup", to: "users#new", as: "signup"
   get "login", to: "sessions#new", as: "login"
   post 'login' => 'sessions#create'

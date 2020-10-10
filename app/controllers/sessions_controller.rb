@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
-  def new
-    ;
-  end
+  before_action :logout_required, except: [:destroy]
+  before_action :require_user, only: [:destroy]
+
+  def new; end
 
   def create
     user = User.find_by_email(params[:session][:email])
@@ -18,7 +19,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, notice: "Bye!"
   end
-
-
 
 end

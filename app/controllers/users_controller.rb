@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
+  before_action :logout_required, only: [:new, :create]
+  before_action :admin_required, only: [:show]
 
   def index ; end
 
@@ -12,7 +14,7 @@ class UsersController < ApplicationController
     if @user.valid?
       @user.save
       session[:user_id] = @user.id
-      redirect_to login_path, notice: 'Registrado con exito! Bienvenido'
+      redirect_to root_path, notice: 'Registrado con exito! Bienvenido'
     else
       flash.now[:alert] = 'Error en el registro'
       render :new
@@ -34,7 +36,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
-
 
 end
