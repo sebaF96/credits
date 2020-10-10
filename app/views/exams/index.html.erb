@@ -1,26 +1,38 @@
-<table class="table table-dark">
-
-  <tr>
-    <th>Codigo</th>
-    <th>Nombre</th>
-    <th>Año</th>
-    <th>#</th>
-  </tr>
-
-
-<% @subjects.each do |s| %>
-  <tr>
-    <td> <%= s.code %> </td>
-    <td> <%= s.name %> </td>
-    <td> <%= s.year %> </td>
-    <td>
-      <%= link_to new_exam_path(s.code), class: "btn btn-dark" do %>
-        Approve
-      <% end %>
-    </td>
-
-  </tr>
-
+<% content_for(:title) do %>
+  Materias restantes
 <% end %>
 
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <table class="table table-dark">
+
+        <tr>
+          <th>Codigo</th>
+          <th>Nombre</th>
+          <th>Año</th>
+        </tr>
+
+
+        <% @subjects.each do |s| %>
+          <tr>
+            <td> <%= s.code %> </td>
+            <td> <%= s.name %> </td>
+            <td> <%= @year_hash[s.year.to_i] %> </td>
+            <td>
+              <%= link_to new_exam_path(s.code), class: "btn btn-success" do %>
+                <span class="fa fa-check"></span>
+                Aprobar
+              <% end %>
+            </td>
+
+          </tr>
+
+        <% end %>
+
+      </table>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

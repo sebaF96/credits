@@ -1,42 +1,32 @@
 <% content_for(:title) do %>
-  Aprobar
+  Aprobar <%= @subject.name %>
 <% end %>
 
 
-<h1>
-  <%= @subject.name %>
-</h1>
-<!--
-<div class="login">
+<div class="signup">
   <div class="container">
+    <%= bootstrap_form_for(@exam) do |f| %>
 
-    <%= bootstrap_form_for(:session, url: login_path) do |f| %>
       <div class="row">
         <div class="col-md-4"></div>
-
         <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12">
-              <%= f.email_field :email, :placeholder => "Email" %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <%= f.password_field :password, :placeholder => "Password" %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12" style="text-align: right">
-              <%= f.submit "Login", class: "btn btn-success btn-lg" %>
-            </div>
-          </div>
+
+          <%= f.hidden_field :subject_id, value: @subject.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+
+          <%= f.text_field :qualification, required: true %>
 
         </div>
 
         <div class="col-md-4"></div>
-    <% end %>
 
+        <div class="row">
+          <div class="col-md-10" style="text-align: right">
+            <%= f.submit "Sign up", class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+
+    <% end %>
     </div>
   </div>
 </div>
--->
