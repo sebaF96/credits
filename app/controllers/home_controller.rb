@@ -3,7 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @subjects = current_user.exams
-
   end
 
 end
