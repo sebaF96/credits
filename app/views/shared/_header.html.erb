@@ -25,7 +25,10 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <a class="btn btn-dark" href="#"> <span class="fa fa-cog"></span> Disabled</a>
+        <%= link_to exams_path, class: "btn btn-dark" do %>
+          <span class="fa fa-cog"></span>
+          Exams
+        <% end %>
       </li>
     </ul>
 

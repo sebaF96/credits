@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :subjects
   resources :users, only: [:index, :new, :create, :show]
+  resources :exams, except: [:new]
+
+  get "exams/new/:code", to: "exams#new", as: "new_exam"
 
   # Sessions
   get "signup", to: "users#new", as: "signup"
