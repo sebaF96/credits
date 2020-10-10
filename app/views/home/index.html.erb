@@ -56,32 +56,15 @@
                   <th>Nota</th>
                 </tr>
 
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
+                <% (@passed.select {|s| s.year.to_i == 1}).each do |s1| %>
+                  <tr>
+                    <td><%= s1.code %></td>
+                    <td><%= s1.name %></td>
+                    <td><%= s1.credits %></td>
+                    <td><%= current_user.qualification_on(s1) %></td>
+                  </tr>
+                <% end %>
 
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
 
               </table>
             </div>
@@ -112,32 +95,14 @@
                   <th>Nota</th>
                 </tr>
 
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
+                <% (@passed.select {|s| s.year.to_i == 2}).each do |s2| %>
+                  <tr>
+                    <td><%= s2.code %></td>
+                    <td><%= s2.name %></td>
+                    <td><%= s2.credits %></td>
+                    <td><%= current_user.qualification_on(s2) %></td>
+                  </tr>
+                <% end %>
 
               </table>
 
@@ -169,32 +134,14 @@
                   <th>Nota</th>
                 </tr>
 
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
+                <% (@passed.select {|s| s.year.to_i == 3}).each do |s3| %>
+                  <tr>
+                    <td><%= s3.code %></td>
+                    <td><%= s3.name %></td>
+                    <td><%= s3.credits %></td>
+                    <td><%= current_user.qualification_on(s3) %></td>
+                  </tr>
+                <% end %>
 
               </table>
 
@@ -226,32 +173,14 @@
                   <th>Nota</th>
                 </tr>
 
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-                  <td>Estan</td>
-                </tr>
+                <% (@passed.select {|s| s.year.to_i == 4}).each do |s4| %>
+                  <tr>
+                    <td><%= s4.code %></td>
+                    <td><%= s4.name %></td>
+                    <td><%= s4.credits %></td>
+                    <td><%= current_user.qualification_on(s4) %></td>
+                  </tr>
+                <% end %>
 
               </table>
             </div>
@@ -279,37 +208,20 @@
               <table class="table table-hover table-sm">
                 <tr>
 
+                  <th>Codigo</th>
                   <th>Nombre</th>
                   <th>Creditos</th>
                   <th>Nota</th>
                 </tr>
 
-                <tr>
-
-                  <td>Tecnologia Ciencia y Sociedad</td>
-                  <td>3</td>
-                  <td>8</td>
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-
-                </tr>
-
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-
-                </tr>
-                <tr>
-                  <td>Hola</td>
-                  <td>Amigos</td>
-                  <td>Como</td>
-
-                </tr>
+                <% (@passed.select {|s| s.year.to_i == 5}).each do |s5| %>
+                  <tr>
+                    <td><%= s5.code %></td>
+                    <td><%= s5.name %></td>
+                    <td><%= s5.credits %></td>
+                    <td><%= current_user.qualification_on(s5) %></td>
+                  </tr>
+                <% end %>
 
               </table>
             </div>

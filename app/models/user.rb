@@ -19,7 +19,7 @@ class User < ApplicationRecord
     self.exams.each do |e|
       all.delete(e.subject)
     end
-    all
+    all.sort! {|a1, a2| a1.code <=> a2.code}
   end
 
   def passed
@@ -27,7 +27,7 @@ class User < ApplicationRecord
     self.exams.each do |e|
       subjects.push(e.subject)
     end
-    subjects
+    subjects.sort! {|s1, s2| s1.code <=> s2.code}
   end
 
   def passed_already?(s)
