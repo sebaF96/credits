@@ -36,7 +36,12 @@
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Primero <b>(4)</b>
+                Primero <b>
+                <% if (@not_passed.select {|s| s.year.to_i == 1}).empty?  %>
+                  <span class="fa fa-check"></span>
+                <% else %>
+                  (<%= (@passed.select {|s| s.year.to_i == 1}).size %>) </b>
+                <% end %>
               </button>
             </h2>
           </div>
@@ -87,7 +92,12 @@
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Segundo <b>(2)</b>
+                Segundo <b>
+                <% if (@not_passed.select {|s| s.year.to_i == 2}).empty?  %>
+                  <span class="fa fa-check"></span>
+                <% else %>
+                  (<%= (@passed.select {|s| s.year.to_i == 2}).size %>) </b>
+                <% end %>
               </button>
             </h2>
           </div>
@@ -139,7 +149,12 @@
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Tercero <span class="fa fa-check"></span>
+                Tercero <b>
+                <% if (@not_passed.select {|s| s.year.to_i == 3}).empty?  %>
+                  <span class="fa fa-check"></span>
+                <% else %>
+                  (<%= (@passed.select {|s| s.year.to_i == 3}).size %>) </b>
+                <% end %>
               </button>
             </h2>
           </div>
@@ -191,7 +206,12 @@
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Cuarto <b>(0)</b>
+                Cuarto <b>
+                <% if (@not_passed.select {|s| s.year.to_i == 4}).empty?  %>
+                  <span class="fa fa-check"></span>
+                <% else %>
+                  (<%= (@passed.select {|s| s.year.to_i == 4}).size %>) </b>
+                <% end %>
               </button>
             </h2>
           </div>
@@ -243,7 +263,13 @@
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Quinto <b>(1)</b>
+                Quinto <b>
+                <% if (@not_passed.select {|s| s.year.to_i == 5}).empty?  %>
+                  <span class="fa fa-check"></span>
+                  <% else %>
+                  (<%= (@passed.select {|s| s.year.to_i == 5}).size %>) </b>
+                <% end %>
+
               </button>
             </h2>
           </div>
