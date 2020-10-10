@@ -55,4 +55,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bootstrap_form", "~> 4.0"
-gem 'font-awesome-sass', '~> 5.6.1'
