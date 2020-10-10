@@ -8,7 +8,7 @@
     <div class="col-md-5">
 
       <div class="jumbotron" id="main-jumbotron">
-        <h1 class="display-4"><b> 129 </b> </h1>
+        <h1 class="display-4"><b> <%= @credits %> </b> </h1>
         <hr>
         <p class="lead">Creditos</p>
       </div>
@@ -16,12 +16,12 @@
     </div>
     <div class="col-md-7">
       <div class="jumbotron">
-        <h1 class="display-4"><b>23</b> aprobadas</h1>
-        <p class="lead">17 restantes</p>
+        <h1 class="display-4"><b><%= @passed.size %></b> aprobadas</h1>
+        <p class="lead"><%= @not_passed.size %> restantes</p>
         <hr class="my-4">
-        <p>49.6 % de la carrera terminada</p>
+        <p><%= @percent %> % de la carrera terminada</p>
         <div class="progress">
-          <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 46.9%"></div>
+          <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: <%= @percent %>%"></div>
         </div>
       </div>
     </div>
