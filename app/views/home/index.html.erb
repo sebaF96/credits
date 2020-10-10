@@ -8,7 +8,7 @@
     <div class="col-md-5">
 
       <div class="jumbotron" id="main-jumbotron">
-        <h1 class="display-4"><b> <%= @credits %> </b> </h1>
+        <h1 class="display-4"><b> <%= @credits %> </b></h1>
         <hr>
         <p class="lead">Creditos</p>
       </div>
@@ -37,36 +37,43 @@
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                 Primero <b>
-                <% if (@not_passed.select {|s| s.year.to_i == 1}).empty?  %>
+                <% if (@not_passed.select { |s| s.year.to_i == 1 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select {|s| s.year.to_i == 1}).size %>) </b>
+                  (<%= (@passed.select { |s| s.year.to_i == 1 }).size %>) </b>
                 <% end %>
-              </button>
+                </button>
             </h2>
           </div>
 
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSubjects">
             <div class="card-body">
-              <table class="table table-hover table-sm">
-                <tr>
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Creditos</th>
-                  <th>Nota</th>
-                </tr>
 
-                <% (@passed.select {|s| s.year.to_i == 1}).each do |s1| %>
+              <% if (@passed.select { |s| s.year.to_i == 1 }).empty? %>
+                <small>Nada por aqui, nada por alla</small>
+              <% else %>
+
+                <table class="table table-hover table-sm">
                   <tr>
-                    <td><%= s1.code %></td>
-                    <td><%= s1.name %></td>
-                    <td><%= s1.credits %></td>
-                    <td><%= current_user.qualification_on(s1) %></td>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Nota</th>
                   </tr>
-                <% end %>
+
+                  <% (@passed.select { |s| s.year.to_i == 1 }).each do |s1| %>
+                    <tr>
+                      <td><%= s1.code %></td>
+                      <td><%= s1.name %></td>
+                      <td><%= s1.credits %></td>
+                      <td><%= current_user.qualification_on(s1) %></td>
+                    </tr>
+                  <% end %>
 
 
-              </table>
+                </table>
+              <% end %>
+
             </div>
           </div>
         </div>
@@ -76,35 +83,40 @@
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                 Segundo <b>
-                <% if (@not_passed.select {|s| s.year.to_i == 2}).empty?  %>
+                <% if (@not_passed.select { |s| s.year.to_i == 2 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select {|s| s.year.to_i == 2}).size %>) </b>
+                  (<%= (@passed.select { |s| s.year.to_i == 2 }).size %>) </b>
                 <% end %>
-              </button>
+                </button>
             </h2>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSubjects">
             <div class="card-body">
 
-              <table class="table table-hover table-sm">
-                <tr>
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Creditos</th>
-                  <th>Nota</th>
-                </tr>
-
-                <% (@passed.select {|s| s.year.to_i == 2}).each do |s2| %>
+              <% if (@passed.select { |s| s.year.to_i == 2 }).empty? %>
+                <small>Nada por aqui, nada por alla</small>
+              <% else %>
+                <table class="table table-hover table-sm">
                   <tr>
-                    <td><%= s2.code %></td>
-                    <td><%= s2.name %></td>
-                    <td><%= s2.credits %></td>
-                    <td><%= current_user.qualification_on(s2) %></td>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Nota</th>
                   </tr>
-                <% end %>
 
-              </table>
+                  <% (@passed.select { |s| s.year.to_i == 2 }).each do |s2| %>
+                    <tr>
+                      <td><%= s2.code %></td>
+                      <td><%= s2.name %></td>
+                      <td><%= s2.credits %></td>
+                      <td><%= current_user.qualification_on(s2) %></td>
+                    </tr>
+                  <% end %>
+
+                </table>
+
+              <% end %>
 
             </div>
           </div>
@@ -115,35 +127,39 @@
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                 Tercero <b>
-                <% if (@not_passed.select {|s| s.year.to_i == 3}).empty?  %>
+                <% if (@not_passed.select { |s| s.year.to_i == 3 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select {|s| s.year.to_i == 3}).size %>) </b>
+                  (<%= (@passed.select { |s| s.year.to_i == 3 }).size %>) </b>
                 <% end %>
-              </button>
+                </button>
             </h2>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSubjects">
             <div class="card-body">
-
-              <table class="table table-hover table-sm">
-                <tr>
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Creditos</th>
-                  <th>Nota</th>
-                </tr>
-
-                <% (@passed.select {|s| s.year.to_i == 3}).each do |s3| %>
+              <% if (@passed.select { |s| s.year.to_i == 3 }).empty? %>
+                <small>Nada por aqui, nada por alla</small>
+              <% else %>
+                <table class="table table-hover table-sm">
                   <tr>
-                    <td><%= s3.code %></td>
-                    <td><%= s3.name %></td>
-                    <td><%= s3.credits %></td>
-                    <td><%= current_user.qualification_on(s3) %></td>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Nota</th>
                   </tr>
-                <% end %>
 
-              </table>
+                  <% (@passed.select { |s| s.year.to_i == 3 }).each do |s3| %>
+                    <tr>
+                      <td><%= s3.code %></td>
+                      <td><%= s3.name %></td>
+                      <td><%= s3.credits %></td>
+                      <td><%= current_user.qualification_on(s3) %></td>
+                    </tr>
+                  <% end %>
+
+                </table>
+
+              <% end %>
 
             </div>
           </div>
@@ -154,35 +170,39 @@
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                 Cuarto <b>
-                <% if (@not_passed.select {|s| s.year.to_i == 4}).empty?  %>
+                <% if (@not_passed.select { |s| s.year.to_i == 4 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select {|s| s.year.to_i == 4}).size %>) </b>
+                  (<%= (@passed.select { |s| s.year.to_i == 4 }).size %>) </b>
                 <% end %>
-              </button>
+                </button>
             </h2>
           </div>
 
           <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSubjects">
             <div class="card-body">
-              <table class="table table-hover table-sm">
-                <tr>
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Creditos</th>
-                  <th>Nota</th>
-                </tr>
-
-                <% (@passed.select {|s| s.year.to_i == 4}).each do |s4| %>
+              <% if (@passed.select { |s| s.year.to_i == 4 }).empty? %>
+                <small>Nada por aqui, nada por alla</small>
+              <% else %>
+                <table class="table table-hover table-sm">
                   <tr>
-                    <td><%= s4.code %></td>
-                    <td><%= s4.name %></td>
-                    <td><%= s4.credits %></td>
-                    <td><%= current_user.qualification_on(s4) %></td>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Nota</th>
                   </tr>
-                <% end %>
 
-              </table>
+                  <% (@passed.select { |s| s.year.to_i == 4 }).each do |s4| %>
+                    <tr>
+                      <td><%= s4.code %></td>
+                      <td><%= s4.name %></td>
+                      <td><%= s4.credits %></td>
+                      <td><%= current_user.qualification_on(s4) %></td>
+                    </tr>
+                  <% end %>
+
+                </table>
+              <% end %>
             </div>
           </div>
         </div>
@@ -193,37 +213,40 @@
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                 Quinto <b>
-                <% if (@not_passed.select {|s| s.year.to_i == 5}).empty?  %>
+                <% if (@not_passed.select { |s| s.year.to_i == 5 }).empty? %>
                   <span class="fa fa-check"></span>
-                  <% else %>
-                  (<%= (@passed.select {|s| s.year.to_i == 5}).size %>) </b>
+                <% else %>
+                  (<%= (@passed.select { |s| s.year.to_i == 5 }).size %>) </b>
                 <% end %>
 
-              </button>
+                </button>
             </h2>
           </div>
 
           <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSubjects">
             <div class="card-body">
-              <table class="table table-hover table-sm">
-                <tr>
-
-                  <th>Codigo</th>
-                  <th>Nombre</th>
-                  <th>Creditos</th>
-                  <th>Nota</th>
-                </tr>
-
-                <% (@passed.select {|s| s.year.to_i == 5}).each do |s5| %>
+              <% if (@passed.select { |s| s.year.to_i == 5 }).empty? %>
+                <small>Nada por aqui, nada por alla</small>
+              <% else %>
+                <table class="table table-hover table-sm">
                   <tr>
-                    <td><%= s5.code %></td>
-                    <td><%= s5.name %></td>
-                    <td><%= s5.credits %></td>
-                    <td><%= current_user.qualification_on(s5) %></td>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Creditos</th>
+                    <th>Nota</th>
                   </tr>
-                <% end %>
 
-              </table>
+                  <% (@passed.select { |s| s.year.to_i == 5 }).each do |s5| %>
+                    <tr>
+                      <td><%= s5.code %></td>
+                      <td><%= s5.name %></td>
+                      <td><%= s5.credits %></td>
+                      <td><%= current_user.qualification_on(s5) %></td>
+                    </tr>
+                  <% end %>
+
+                </table>
+              <% end %>
             </div>
           </div>
         </div>
