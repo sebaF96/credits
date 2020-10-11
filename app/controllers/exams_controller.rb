@@ -7,11 +7,14 @@ class ExamsController < ApplicationController
   end
 
   def new
-    puts ".."
     @subject = Subject.find(params[:subject_id])
-    @exam = Exam.new
-
-    render 'exams/new'
+    
+    if current_user.subjects.include? @subject
+      redirect_to root_path
+    else
+      @exam = Exam.new
+      render 'exams/new'
+    end
   end
 
   def create
