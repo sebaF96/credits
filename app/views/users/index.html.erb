@@ -1,3 +1,29 @@
-<h1>User#index</h1>
+<% content_for(:title) do %>
+  Users
+<% end %>
 
-<p>Find me in app/views/user/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <table class="table table-dark table-responsive-sm table-hover">
+
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+        </tr>
+
+        <% @users.each do |s| %>
+          <tr>
+            <td style="text-align: left">  <%= s.name %> </td>
+            <td><%= s.email %> </td>
+
+          </tr>
+
+        <% end %>
+
+      </table>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

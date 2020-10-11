@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
   before_action :logout_required, only: [:new, :create]
-  before_action :admin_required, only: [:show]
+  before_action :admin_required, only: [:index]
 
-  def index ; end
+  def index
+    @users = User.all
+  end
 
   def new
     @user = User.new
@@ -21,10 +22,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-    @subjects = Subject.all
-  end
-
   private
 
   def user_params
@@ -32,6 +29,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
