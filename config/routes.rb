@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :subjects
-  resources :users, only: [:index, :new, :create, :show]
-  resources :exams, except: [:new]
+  resources :subjects do
+    resources :exams, only: [:new, :create]
+  end
 
-  get "exams/new/:code", to: "exams#new", as: "new_exam"
+  resources :users, only: [:index, :new, :create, :show]
+  resources :exams, only: [:index]
 
   # Sessions
   get "signup", to: "users#new", as: "signup"

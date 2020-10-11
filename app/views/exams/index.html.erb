@@ -21,7 +21,7 @@
             <td> <%= s.name %> </td>
             <td> <%= @year_hash[s.year.to_i] %> </td>
             <td>
-              <%= link_to new_exam_path(s.code), class: "btn btn-success" do %>
+              <%= link_to new_subject_exam_url(s), class: "btn btn-success" do %>
                 <span class="fa fa-check"></span>
                 Aprobar
               <% end %>

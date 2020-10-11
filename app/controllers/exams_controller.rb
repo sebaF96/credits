@@ -7,24 +7,25 @@ class ExamsController < ApplicationController
   end
 
   def new
-    @subject = Subject.find_by_code(params[:code])
-    @user = current_user
-    @exam = Exam.new(user: @user, subject: @subject)
+    puts ".."
+    @subject = Subject.find(params[:subject_id])
+    @exam = Exam.new
+
+    render 'exams/new'
   end
 
   def create
-    @exam = Exam.new(exam_params)
-    if @exam.user.id == current_user.id
-      @exam.save
-      redirect_to root_path, notice: "Felicitaciones! Aprobaste #{@exam.subject.name}"
-    end
+    @subject = Subject.find(params[:subject_id])
+    @exam = @subject.exams.create(user: current_user, qualification: exam_params)
+
+    redirect_to root_path, notice: "Felicitaciones! Aprobaste #{@exam.subject.name}"
   end
 
-  private
+private
 
-  # Only allow a list of trusted parameters through.
-  def exam_params
-    params.require(:exam).permit(:user_id, :subject_id, :qualification)
-  end
+# Only allow a list of trusted parameters through.
+def exam_params
+  params.require(:exam).permit(:qualification)
+end
 
 end

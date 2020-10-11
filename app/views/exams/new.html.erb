@@ -2,17 +2,16 @@
   Aprobar <%= @subject.name %>
 <% end %>
 
-
 <div class="signup">
   <div class="container">
-    <%= bootstrap_form_for(@exam) do |f| %>
+    <%= bootstrap_form_for([@subject, @exam]) do |f| %>
 
       <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
 
-          <%= f.hidden_field :subject_id, value: @subject.id %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%# f.hidden_field :subject_id, value: @subject.id %>
+          <%# f.hidden_field :user_id, value: current_user.id %>
 
           <%= f.select :qualification, [[6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], { label: "Nota"}, { class: "form-control-lg" } %>
 
@@ -22,7 +21,7 @@
 
         <div class="row">
           <div class="col-md-10" style="text-align: right">
-            <%= f.submit "Sign up", class: "btn btn-success btn-lg" %>
+            <%= f.submit "Aprobar!", class: "btn btn-success btn-lg" %>
           </div>
         </div>
 
