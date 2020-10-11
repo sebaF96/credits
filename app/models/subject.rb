@@ -4,4 +4,10 @@ class Subject < ApplicationRecord
 
   validates :name, uniqueness: { message: "Nombre duplicado" }
   validates :code, uniqueness: { message: "Codigo duplicado" }
+
+  validates :name, presence: true
+  validates :code, presence: true
+  validates :credits, presence: true
+  validates :year, presence: true
+
 end

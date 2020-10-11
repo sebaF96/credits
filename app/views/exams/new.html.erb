@@ -2,30 +2,38 @@
   Aprobar <%= @subject.name %>
 <% end %>
 
-<div class="signup">
+<div class="approve">
   <div class="container">
-    <%= bootstrap_form_for([@subject, @exam]) do |f| %>
+    <div class="row">
+      <div class="col-md-4"></div>
 
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+      <div class="col-md-4 session-form">
+        <%= bootstrap_form_for([@subject, @exam]) do |f| %>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="staticmat">Materia</label>
+              <input class="form-control" id="staticmat" type="text" placeholder="<%= @subject.name %>" readonly>
+            </div>
 
-          <%# f.hidden_field :subject_id, value: @subject.id %>
-          <%# f.hidden_field :user_id, value: current_user.id %>
-       
-          <%= f.select :qualification, [[6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], { label: "Nota"}, { class: "form-control-lg" } %>
+            <div class="col-md-12" style="margin-top: 20px">
+              <%= f.select :qualification, [[6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], {label: "Nota"}, {class: "form-control-lg"} %>
+            </div>
 
-        </div>
+            <div class="col-md-6" style="margin-top: 20px">
+              <%= link_to exams_path, class: "btn btn-block btn-secondary" do %>
+                Cancelar
+              <% end %>
+            </div>
 
-        <div class="col-md-4"></div>
+            <div class="col-md-6" style="margin-top: 20px">
+              <%= f.submit "Aprobar!", class: "btn btn-success btn-block" %>
+            </div>
 
-        <div class="row">
-          <div class="col-md-10" style="text-align: right">
-            <%= f.submit "Aprobar!", class: "btn btn-success btn-lg" %>
           </div>
-        </div>
+        <% end %>
+      </div>
 
-    <% end %>
+      <div class="col-md-4"></div>
     </div>
   </div>
 </div>
