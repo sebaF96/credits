@@ -18,7 +18,7 @@
       <div class="jumbotron">
         <h3><b><%= @passed.size %></b> aprobadas <span class="fas fa-graduation-cap"></span> </h3>
         <p><%= @not_passed.size %> restantes</p>
-        <h3><span class="badge badge-success"> 8.9 </span> promedio </h3>
+        <h3><span class="badge badge-success"> <%= @avg %> </span> promedio </h3>
         <hr class="my-4">
         <p><%= @percent %> % completado</p>
         <div class="progress">
