@@ -67,7 +67,7 @@ Subject.create(code: "2052", name: "Higiene y seguridad del trabajo", credits: 3
 Subject.create(code: "2053", name: "Modelos y simulacion", credits: 3, year: 5)
 Subject.create(code: "2054", name: "Diseño de BD II", credits: 5, year: 5)
 Subject.create(code: "2055", name: "Inteligencia Artificial", credits: 4, year: 5)
-Subject.create(code: "2056", name: "Planeamiento y gestion de empresas", credits: 5, year: 3)
+Subject.create(code: "2056", name: "Planeamiento y gestion de empresas", credits: 5, year: 5)
 Subject.create(code: "2057", name: "Trabajo Final", credits: 7, year: 5)
 Subject.create(code: "2058", name: "Practica Profesional", credits: 0, year: 5)
 Subject.create(code: "4000", name: "Optativa II", credits: 3, year: 5)

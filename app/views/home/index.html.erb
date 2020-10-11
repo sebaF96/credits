@@ -59,16 +59,16 @@
                   <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th>Creditos</th>
-                    <th>Nota</th>
+                    <th style="text-align: center; ">Creditos</th>
+                    <th style="text-align: center; ">Nota</th>
                   </tr>
 
                   <% (@passed.select { |s| s.year.to_i == 1 }).each do |s1| %>
                     <tr>
                       <td><%= s1.code %></td>
                       <td><%= s1.name %></td>
-                      <td><%= s1.credits %></td>
-                      <td><%= current_user.qualification_on(s1) %></td>
+                      <td style="text-align: center; font-weight: bold"><%= s1.credits %></td>
+                      <td style="text-align: center"><%= current_user.qualification_on(s1) %></td>
                     </tr>
                   <% end %>
 

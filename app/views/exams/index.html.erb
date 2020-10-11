@@ -6,22 +6,23 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-      <table class="table table-dark">
+      <table class="table table-dark table-sm table-responsive-sm table-hover">
 
         <tr>
-          <th>Codigo</th>
+          <th>Code</th>
           <th>Nombre</th>
           <th>Año</th>
+          <th> </th>
         </tr>
 
 
         <% @subjects.each do |s| %>
           <tr>
-            <td> <%= s.code %> </td>
-            <td> <%= s.name %> </td>
-            <td> <%= @year_hash[s.year.to_i] %> </td>
+            <td style="text-align: left"> <small> <%= s.code %> </small></td>
+            <td><%= s.name %> </td>
+            <td style="text-align: left"><small> <%= @year_hash[s.year.to_i] %> </small> </td>
             <td>
-              <%= link_to new_subject_exam_url(s), class: "btn btn-success" do %>
+              <%= link_to new_subject_exam_url(s), class: "btn btn-success btn-sm" do %>
                 <span class="fa fa-check"></span>
                 Aprobar
               <% end %>

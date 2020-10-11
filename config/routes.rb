@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :exams, only: [:new, :create]
   end
 
-  resources :users, only: [:index, :new, :create, :show]
-  resources :exams, only: [:index]
+  resources :users, only: [:index, :new, :create]
+
+  get "not_passed", to: 'exams#index', as: "exams"
 
   # Sessions
   get "signup", to: "users#new", as: "signup"

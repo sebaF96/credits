@@ -22,7 +22,6 @@ class SubjectsController < ApplicationController
     if @subject.valid?
       @subject.save
       redirect_to @subject, notice: 'Subject was successfully created.'
-      render :show, status: :created, location: @subject
     else
       flash.now[:alert] = 'Something went wrong'
       render :new
