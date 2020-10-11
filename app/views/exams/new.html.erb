@@ -14,7 +14,7 @@
           <%= f.hidden_field :subject_id, value: @subject.id %>
           <%= f.hidden_field :user_id, value: current_user.id %>
 
-          <%= f.text_field :qualification, required: true %>
+          <%= f.select :qualification, [[6, 6], [7, 7], [8, 8], [9, 9], [10, 10]], { label: "Nota"}, { class: "form-control-lg" } %>
 
         </div>
 
