@@ -36,13 +36,15 @@
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Primero <b>
+                Primero
                 <% if (@not_passed.select { |s| s.year.to_i == 1 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select { |s| s.year.to_i == 1 }).size %>) </b>
+                  <% (@passed.select { |s| s.year.to_i == 1 }).size.times do %>
+                    <span class="fas fa-graduation-cap"></span>
+                  <% end %>
                 <% end %>
-                </button>
+              </button>
             </h2>
           </div>
 
@@ -82,13 +84,15 @@
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Segundo <b>
+                Segundo
                 <% if (@not_passed.select { |s| s.year.to_i == 2 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select { |s| s.year.to_i == 2 }).size %>) </b>
+                  <% (@passed.select { |s| s.year.to_i == 2 }).size.times do %>
+                    <span class="fas fa-graduation-cap"></span>
+                  <% end %>
                 <% end %>
-                </button>
+              </button>
             </h2>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSubjects">
@@ -126,11 +130,13 @@
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Tercero <b>
+                Tercero
                 <% if (@not_passed.select { |s| s.year.to_i == 3 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select { |s| s.year.to_i == 3 }).size %>) </b>
+                  <% (@passed.select { |s| s.year.to_i == 3 }).size.times do%>
+                    <span class="fas fa-graduation-cap"></span>
+                  <% end %>
                 <% end %>
                 </button>
             </h2>
@@ -169,11 +175,13 @@
           <div class="card-header" id="headingFour">
             <h2 class="mb-0">
               <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Cuarto <b>
+                Cuarto
                 <% if (@not_passed.select { |s| s.year.to_i == 4 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select { |s| s.year.to_i == 4 }).size %>) </b>
+                  <% (@passed.select { |s| s.year.to_i == 4 }).size.times do%>
+                    <span class="fas fa-graduation-cap"></span>
+                  <% end %>
                 <% end %>
                 </button>
             </h2>
@@ -212,11 +220,13 @@
           <div class="card-header" id="headingFive">
             <h2 class="mb-0">
               <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Quinto <b>
+                Quinto
                 <% if (@not_passed.select { |s| s.year.to_i == 5 }).empty? %>
                   <span class="fa fa-check"></span>
                 <% else %>
-                  (<%= (@passed.select { |s| s.year.to_i == 5 }).size %>) </b>
+                  <% (@passed.select { |s| s.year.to_i == 5 }).size.times do%>
+                    <span class="fas fa-graduation-cap"></span>
+                  <% end %>
                 <% end %>
 
                 </button>

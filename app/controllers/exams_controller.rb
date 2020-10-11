@@ -19,9 +19,15 @@ class ExamsController < ApplicationController
 
   def create
     @subject = Subject.find(params[:subject_id])
-    @exam = @subject.exams.create(user: current_user, qualification: exam_params)
+    @exam = Exam.new(user: current_user, subject: @subject, qualification: exam_params[:qualification])
 
-    redirect_to root_path, notice: "Felicitaciones! Aprobaste #{@exam.subject.name}"
+    if @exam.valid?
+      @exam.save
+      redirect_to root_path, notice: "Felicitaciones! Aprobaste #{@exam.subject.name}"
+    else
+      flash.now[:alert] = 'Algo salio mal'
+      render :'exams/new'
+    end
   end
 
 private
