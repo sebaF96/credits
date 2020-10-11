@@ -7,26 +7,29 @@
     <%= bootstrap_form_for(@user) do |f| %>
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-4">
-          <%= f.text_field :name, required: true %>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 session-form">
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.text_field :name, label: 'Nombre', required: true, placeholder: 'Nombre' %>
 
-          <%= f.text_field :email, required: true, placeholder: "example@alumno.um.edu.ar" %>
+              <%= f.text_field :email, label: 'Correo Electronico', required: true, placeholder: "example@alumno.um.edu.ar" %>
 
+              <%= f.password_field :password, label: 'Contraseña', required: true, placeholder: 'Contraseña' %>
+
+              <%= f.password_field :password_confirmation, label: 'Confirmar contraseña', required: true, placeholder: 'Confirmar contraseña' %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px">
+              <%= f.submit "Crear cuenta", class: "btn btn-success btn-block" %>
+            </div>
+
+          </div>
         </div>
-        <div class="col-md-4">
-          <%= f.password_field :password, required: true %>
-
-          <%= f.password_field :password_confirmation, required: true %>
-        </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-4"></div>
       </div>
 
-      <div class="row">
-        <div class="col-md-10" style="text-align: right">
-          <%= f.submit "Sign up", class: "btn btn-success btn-lg"%>
-        </div>
-      </div>
 
     <% end %>
   </div>
