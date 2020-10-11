@@ -11,25 +11,23 @@
 
   <div class="collapse navbar-collapse" id="rb-navbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <%= link_to new_subject_path, class: "btn btn-dark" do %>
-          <span class="fa fa-address-book"></span>
-          Add Subject
-        <% end %>
-      </li>
-      <li class="nav-item">
+      <% if current_user %>
 
-        <%= link_to subjects_path, class: "btn btn-dark" do %>
-          <span class="fa fa-address-book"></span>
-          Subjects
-        <% end %>
-      </li>
-      <li class="nav-item">
-        <%= link_to exams_path, class: "btn btn-dark" do %>
-          <span class="fa fa-cog"></span>
-          Exams
-        <% end %>
-      </li>
+        <li class="nav-item">
+          <%= link_to root_path, class: "btn btn-dark" do %>
+            <span class="fa fa-home"></span>
+            Home
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to exams_path, class: "btn btn-dark" do %>
+            <span class="fa fa-list"></span>
+            Aprobar
+          <% end %>
+        </li>
+      <% end %>
+
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
