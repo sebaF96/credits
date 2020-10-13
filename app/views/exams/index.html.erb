@@ -12,6 +12,7 @@
           <th>Code</th>
           <th>Nombre</th>
           <th>Año</th>
+          <th>Creditos</th>
           <th> </th>
         </tr>
 
@@ -20,8 +21,9 @@
           <tr>
             <td style="text-align: left"> <small> <%= s.code %> </small></td>
             <td><%= s.name %> </td>
-            <td style="text-align: left"><small> <%= @year_hash[s.year.to_i] %> </small> </td>
-            <td>
+            <td style="text-align: left"><small> <%= @year_str[s.year.to_i] %> </small> </td>
+            <td> <%= s.credits %> </td>
+            <td style="text-align: center">
               <%= link_to new_subject_exam_url(s), class: "btn btn-success btn-sm" do %>
                 <span class="fa fa-check"></span>
                 Aprobar

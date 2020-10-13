@@ -2,7 +2,7 @@ class ExamsController < ApplicationController
   before_action :require_user
 
   def index
-    @year_hash = {1 => "1° Primero", 2 => "2° Segundo", 3 => "3° Tercero", 4 => "4° Cuarto", 5 => "5° Quinto"}
+    @year_str = ["default", "1° Primero", "2° Segundo", "3° Tercero", "4° Cuarto", "5° Quinto"]
     @subjects = current_user.not_passed.sort { |m1, m2| m1.code <=> m2.code }
   end
 
