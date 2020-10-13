@@ -10,6 +10,7 @@ class HomeController < ApplicationController
     total_notes = (current_user.passed.map { |s| current_user.qualification_on(s) }).sum.to_f
     @avg = 0.to_f.truncate(1)
     @avg = (total_notes / @passed.size).to_f.truncate(1) unless @passed.size == 0
+    @years_str = %w[default Primero Segundo Tercero Cuarto Quinto]
 
   end
 

@@ -10,13 +10,13 @@
       <div class="jumbotron" id="main-jumbotron">
         <h1 class="display-4"><%= @credits %></h1>
         <hr>
-        <p class="lead"> Creditos  <span class="fa fa-check-circle"></span> </p>
+        <p class="lead"> Creditos <span class="fa fa-check-circle"></span></p>
       </div>
 
     </div>
     <div class="col-md-6">
       <div class="jumbotron">
-        <h3><b><%= @passed.size %></b> aprobadas <span class="fas fa-graduation-cap"></span> </h3>
+        <h3><b><%= @passed.size %></b> aprobadas <span class="fas fa-graduation-cap"></span></h3>
         <p><%= @not_passed.size %> restantes</p>
         <h3><span class="badge badge-success"> <%= @avg %> </span> promedio </h3>
         <hr class="my-4">
@@ -33,234 +33,55 @@
 
       <div class="accordion" id="accordionSubjects">
 
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                Primero
-                <% if (@not_passed.select { |s| s.year.to_i == 1 }).empty? %>
-                  <span class="fa fa-check"></span>
-                <% else %>
-                  <% (@passed.select { |s| s.year.to_i == 1 }).size.times do %>
-                    <span class="fas fa-graduation-cap"></span>
+        <% [1, 2, 3, 4, 5].each do |i| %>
+          <div class="card">
+            <div class="card-header" id=<%= "heading#{i}" %>>
+              <h2 class="mb-0">
+                <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#<%= "collapse#{i}" %>" aria-expanded="false" aria-controls="<%= "collapse#{i}" %>">
+                  <%= @years_str[i] %>
+                  <% if (@not_passed.select { |s| s.year.to_i == i }).empty? %>
+                    <span class="fa fa-check"></span>
+                  <% else %>
+                    <% (@passed.select { |s| s.year.to_i == i }).size.times do %>
+                      <span class="fas fa-graduation-cap"></span>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </button>
-            </h2>
-          </div>
-
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSubjects">
-            <div class="card-body">
-
-              <% if (@passed.select { |s| s.year.to_i == 1 }).empty? %>
-                <small>Nada por aqui, nada por alla</small>
-              <% else %>
-
-                <table class="table table-hover table-sm">
-                  <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th style="text-align: center; ">Creditos</th>
-                    <th style="text-align: center; ">Nota</th>
-                  </tr>
-
-                  <% (@passed.select { |s| s.year.to_i == 1 }).each do |s1| %>
-                    <tr>
-                      <td><%= s1.code %></td>
-                      <td><%= s1.name %></td>
-                      <td style="text-align: center; font-weight: bold"><%= s1.credits %></td>
-                      <td style="text-align: center"><%= current_user.qualification_on(s1) %></td>
-                    </tr>
-                  <% end %>
-
-
-                </table>
-              <% end %>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-              <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Segundo
-                <% if (@not_passed.select { |s| s.year.to_i == 2 }).empty? %>
-                  <span class="fa fa-check"></span>
-                <% else %>
-                  <% (@passed.select { |s| s.year.to_i == 2 }).size.times do %>
-                    <span class="fas fa-graduation-cap"></span>
-                  <% end %>
-                <% end %>
-              </button>
-            </h2>
-          </div>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSubjects">
-            <div class="card-body">
-
-              <% if (@passed.select { |s| s.year.to_i == 2 }).empty? %>
-                <small>Nada por aqui, nada por alla</small>
-              <% else %>
-                <table class="table table-hover table-sm">
-                  <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Creditos</th>
-                    <th>Nota</th>
-                  </tr>
-
-                  <% (@passed.select { |s| s.year.to_i == 2 }).each do |s2| %>
-                    <tr>
-                      <td><%= s2.code %></td>
-                      <td><%= s2.name %></td>
-                      <td><%= s2.credits %></td>
-                      <td><%= current_user.qualification_on(s2) %></td>
-                    </tr>
-                  <% end %>
-
-                </table>
-
-              <% end %>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-header" id="headingThree">
-            <h2 class="mb-0">
-              <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Tercero
-                <% if (@not_passed.select { |s| s.year.to_i == 3 }).empty? %>
-                  <span class="fa fa-check"></span>
-                <% else %>
-                  <% (@passed.select { |s| s.year.to_i == 3 }).size.times do%>
-                    <span class="fas fa-graduation-cap"></span>
-                  <% end %>
-                <% end %>
                 </button>
-            </h2>
-          </div>
-          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSubjects">
-            <div class="card-body">
-              <% if (@passed.select { |s| s.year.to_i == 3 }).empty? %>
-                <small>Nada por aqui, nada por alla</small>
-              <% else %>
-                <table class="table table-hover table-sm">
-                  <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Creditos</th>
-                    <th>Nota</th>
-                  </tr>
-
-                  <% (@passed.select { |s| s.year.to_i == 3 }).each do |s3| %>
-                    <tr>
-                      <td><%= s3.code %></td>
-                      <td><%= s3.name %></td>
-                      <td><%= s3.credits %></td>
-                      <td><%= current_user.qualification_on(s3) %></td>
-                    </tr>
-                  <% end %>
-
-                </table>
-
-              <% end %>
-
+              </h2>
             </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-header" id="headingFour">
-            <h2 class="mb-0">
-              <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                Cuarto
-                <% if (@not_passed.select { |s| s.year.to_i == 4 }).empty? %>
-                  <span class="fa fa-check"></span>
+            <div id="<%= "collapse#{i}" %>" class="collapse" aria-labelledby="<%= "heading#{i}" %>" data-parent="#accordionSubjects">
+              <div class="card-body">
+
+                <% if (@passed.select { |s| s.year.to_i == i }).empty? %>
+                  <small>Nada por aqui, nada por alla</small>
                 <% else %>
-                  <% (@passed.select { |s| s.year.to_i == 4 }).size.times do%>
-                    <span class="fas fa-graduation-cap"></span>
-                  <% end %>
-                <% end %>
-                </button>
-            </h2>
-          </div>
 
-          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSubjects">
-            <div class="card-body">
-              <% if (@passed.select { |s| s.year.to_i == 4 }).empty? %>
-                <small>Nada por aqui, nada por alla</small>
-              <% else %>
-                <table class="table table-hover table-sm">
-                  <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Creditos</th>
-                    <th>Nota</th>
-                  </tr>
-
-                  <% (@passed.select { |s| s.year.to_i == 4 }).each do |s4| %>
+                  <table class="table table-hover table-sm">
                     <tr>
-                      <td><%= s4.code %></td>
-                      <td><%= s4.name %></td>
-                      <td><%= s4.credits %></td>
-                      <td><%= current_user.qualification_on(s4) %></td>
+                      <th>Codigo</th>
+                      <th>Nombre</th>
+                      <th style="text-align: center; ">Creditos</th>
+                      <th style="text-align: center; ">Nota</th>
                     </tr>
-                  <% end %>
 
-                </table>
-              <% end %>
-            </div>
-          </div>
-        </div>
+                    <% (@passed.select { |s| s.year.to_i == i }).each do |s1| %>
+                      <tr>
+                        <td><%= s1.code %></td>
+                        <td><%= s1.name %></td>
+                        <td style="text-align: center; font-weight: bold"><%= s1.credits %></td>
+                        <td style="text-align: center"><%= current_user.qualification_on(s1) %></td>
+                      </tr>
+                    <% end %>
 
 
-        <div class="card">
-          <div class="card-header" id="headingFive">
-            <h2 class="mb-0">
-              <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                Quinto
-                <% if (@not_passed.select { |s| s.year.to_i == 5 }).empty? %>
-                  <span class="fa fa-check"></span>
-                <% else %>
-                  <% (@passed.select { |s| s.year.to_i == 5 }).size.times do%>
-                    <span class="fas fa-graduation-cap"></span>
-                  <% end %>
+                  </table>
                 <% end %>
 
-                </button>
-            </h2>
-          </div>
-
-          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSubjects">
-            <div class="card-body">
-              <% if (@passed.select { |s| s.year.to_i == 5 }).empty? %>
-                <small>Nada por aqui, nada por alla</small>
-              <% else %>
-                <table class="table table-hover table-sm">
-                  <tr>
-                    <th>Codigo</th>
-                    <th>Nombre</th>
-                    <th>Creditos</th>
-                    <th>Nota</th>
-                  </tr>
-
-                  <% (@passed.select { |s| s.year.to_i == 5 }).each do |s5| %>
-                    <tr>
-                      <td><%= s5.code %></td>
-                      <td><%= s5.name %></td>
-                      <td><%= s5.credits %></td>
-                      <td><%= current_user.qualification_on(s5) %></td>
-                    </tr>
-                  <% end %>
-
-                </table>
-              <% end %>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
 
 
       </div>
