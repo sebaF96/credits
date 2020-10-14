@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Ruby credits</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>UM credits</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://cdn.svgporn.com/logos/ruby.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn.svgporn.com/logos/rubygems.svg">
 
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  </head>
+</head>
 
-  <body>
+<body>
   <%= render 'shared/header' %>
 
-    <div class="container">
-      <%= yield %>
-    </div>
+  <div class="container">
+    <%= yield %>
+  </div>
 
-  </body>
+  <%= render 'shared/footer' %>
+
+</body>
 </html>

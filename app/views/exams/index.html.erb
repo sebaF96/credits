@@ -22,7 +22,7 @@
             <td style="text-align: left"> <small> <%= s.code %> </small></td>
             <td><%= s.name %> </td>
             <td style="text-align: left"><small> <%= @year_str[s.year.to_i] %> </small> </td>
-            <td style="text-align: center"> <%= s.credits %> </td>
+            <td style="text-align: center"> <%= "#{s.credits} creditos" %> </td>
             <td style="text-align: center">
               <%= link_to new_subject_exam_url(s), class: "btn btn-success btn-sm" do %>
                 <span class="fa fa-check"></span>

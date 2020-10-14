@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark">
 
   <%= link_to root_path, class: "navbar-brand" do %>
-    <img src="https://cdn.svgporn.com/logos/ruby.svg" width="30" height="30" alt="Logo">
-    Ruby Credits
+    <img src="https://cdn.svgporn.com/logos/rubygems.svg" width="30" height="30" alt="Logo">
+    UM credits
   <% end %>
 
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#rb-navbar" aria-controls="rb-navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,11 +88,13 @@
 <% end %>
 
 <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
-  <h1>
+  <h1 class="display-3">
     <% if content_for(:title) %>
-      <%= content_for(:title) %>
+      <%= content_for(:title) %>  <img src="https://cdn.svgporn.com/logos/rubygems.svg" style="width: 70px; height: 70px" alt="umcredits-logo">
     <% else %>
-      Ruby credits
+      UM credits
     <% end %>
+
+    <hr>
   </h1>
 </div>

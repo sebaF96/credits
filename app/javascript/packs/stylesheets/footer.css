@@ -1,0 +1,15 @@
+.credits-footer {
+    background: #222;
+    color: white;
+    margin-top: 100px;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #ee3f3f;
+}
+
+.footer-link:hover {
+    color: white;
+    text-decoration: none;
+}
