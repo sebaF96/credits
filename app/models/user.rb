@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_create :confirmation_token
+  before_save :confirmation_token, on: create
   has_secure_password
 
   has_many :exams
@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, format: { with: /\A([a-zA-Z] ?)+\z/, message: 'El nombre solo debe contener letras' }
 
   # Email validations
-  # validates :email, format: {with: /[\w]+@alumno.um.edu.ar/, message: "El email debe terminar en @alumno.um.edu.ar"}
+  #validates :email, format: {with: /[\w]+@alumno.um.edu.ar/, message: "El email debe terminar en @alumno.um.edu.ar"}
   validates :email, uniqueness: { message: "Este correo ya esta registrado" }
 
   # Password validations
@@ -42,9 +42,7 @@ class User < ApplicationRecord
 
   private
   def confirmation_token
-    if self.confirm_token.blank?
-      self.confirm_token = SecureRandom.urlsafe_base64.to_s
-    end
+    self.confirm_token = SecureRandom.urlsafe_base64.to_s
   end
 
   def email_activate
