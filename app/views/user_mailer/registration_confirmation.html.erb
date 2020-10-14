@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>umcredits</title>
+</head>
+<body>
+
+<h1> Hola <%= @user.name %>
+</h1>
+
+<h3> Para confirmar tu cuenta, hace click en <%=  link_to "este link", confirm_email_user_url(@user.confirm_token) %> </h3>
+
+
+<hr>
+<p>Saludos! umcredits</p>
+
+</body>
+</html>

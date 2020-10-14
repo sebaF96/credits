@@ -13,14 +13,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.valid?
+      @user.email.downcase!
       @user.save
-      session[:user_id] = @user.id
-      redirect_to root_path, notice: 'Registrado con exito! Bienvenido'
+      UserMailer.registration_confirmation(@user).deliver
+      redirect_to login_path, notice: 'Registrado con exito! Te enviamos un email para confirmar tu cuenta, debes hacerlo para poder iniciar sesion'
     else
       flash.now[:alert] = 'Error en el registro'
       render :new
     end
   end
+
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.send(:email_activate)
+      redirect_to login_path, notice: "Cuenta activada! Podes iniciar sesion"
+    else
+      redirect_to root_url, alert: "Algo salio mal"
+    end
+  end
+
+
 
   private
 
