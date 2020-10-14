@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  before_save :confirmation_token, on: create
+  before_create :confirmation_token
   has_secure_password
 
   has_many :exams
