@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :name, format: { with: /\A([a-zA-Z] ?)+\z/, message: 'El nombre solo debe contener letras' }
 
   # Email validations
-  #validates :email, format: {with: /[\w]+@alumno.um.edu.ar/, message: "El email debe terminar en @alumno.um.edu.ar"}
+  validates :email, format: {with: /[\w]+@alumno.um.edu.ar/, message: "El email debe terminar en @alumno.um.edu.ar"}
   validates :email, uniqueness: { message: "Este correo ya esta registrado" }
 
   # Password validations
