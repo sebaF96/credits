@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :exams, only: [:new, :create]
   end
 
-  resources :users, only: [:index, :new, :create]
+  resources :users, only: [:index, :new, :create] do
+    member do
+      get :confirm_email
+    end
+  end
 
   get "not_passed", to: 'exams#index', as: "exams"
 
