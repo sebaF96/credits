@@ -17,8 +17,9 @@ class User < ApplicationRecord
 
   def not_passed
     pending = []
+    passed = self.passed
     Subject.order(:code).each do |s|
-      pending << s unless self.passed_already? s
+      pending << s unless passed.include? s
     end
     pending
   end

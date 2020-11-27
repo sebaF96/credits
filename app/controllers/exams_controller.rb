@@ -3,7 +3,7 @@ class ExamsController < ApplicationController
 
   def index
     @year_str = ["default", "1° Primero", "2° Segundo", "3° Tercero", "4° Cuarto", "5° Quinto"]
-    @subjects = current_user.not_passed.sort { |m1, m2| m1.code <=> m2.code }
+    @subjects = current_user.not_passed
   end
 
   def new
