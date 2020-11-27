@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to root_url, notice: "Welcome #{user.name}!"
       else
-        flash.now[:alert] = "Confirma tu cuenta antes de iniciar sesion. Te hemos enviado un email con las instrucciones"
+        flash.now[:alert] = "Confirmá tu cuenta antes de iniciar sesión. Te hemos enviado un email con las instrucciones"
         render "new"
       end
     else

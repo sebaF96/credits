@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @user.email.downcase!
       @user.save
       UserMailer.registration_confirmation(@user).deliver
-      redirect_to login_path, notice: 'Registrado con exito! Te enviamos un email para confirmar tu cuenta, debes hacerlo para poder iniciar sesion'
+      redirect_to login_path, notice: 'Registrado con éxito! Te enviamos un email para confirmar tu cuenta, debes hacerlo para poder iniciar sesión'
     else
       flash.now[:alert] = 'Error en el registro'
       render :new
@@ -27,9 +27,9 @@ class UsersController < ApplicationController
     user = User.find_by_confirm_token(params[:id])
     if user
       user.send(:email_activate)
-      redirect_to login_path, notice: "Cuenta activada! Podes iniciar sesion"
+      redirect_to login_path, notice: "Cuenta activada! Podes iniciar sesión"
     else
-      redirect_to root_url, alert: "Algo salio mal"
+      redirect_to root_url, alert: "Algo salió mal"
     end
   end
 

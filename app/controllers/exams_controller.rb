@@ -25,7 +25,7 @@ class ExamsController < ApplicationController
       @exam.save
       redirect_to root_path, notice: "Felicitaciones! Aprobaste #{@exam.subject.name}"
     else
-      flash.now[:alert] = 'Algo salio mal'
+      flash.now[:alert] = 'Algo salió mal'
       render :'exams/new'
     end
   end
