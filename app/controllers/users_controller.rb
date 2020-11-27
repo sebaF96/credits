@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.email.downcase!
+      @user.name = @user.name.titleize
       @user.save
       UserMailer.registration_confirmation(@user).deliver
       redirect_to login_path, notice: 'Registrado con éxito! Te enviamos un email para confirmar tu cuenta, debes hacerlo para poder iniciar sesión'
