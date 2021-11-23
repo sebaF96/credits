@@ -25,3 +25,7 @@ th {
 tr > td {
   font-size: small;
 }
+
+button.btn-raw:focus {
+  box-shadow: none;
+}
