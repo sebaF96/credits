@@ -10,19 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="icon" href="https://cdn.svgporn.com/logos/rubygems.svg">
 
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://umcredits.herokuapp.com/"/>
+  <meta property="og:title" content="UM Credits - 2022"/>
+  <meta property="og:description" content="Materias y créditos. UM - Ingeniería en informática"/>
+
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
 </head>
 
 <body>
-  <%= render 'shared/header' %>
+<%= render 'shared/header' %>
 
-  <div class="container">
-    <%= yield %>
-  </div>
+<div class="container">
+  <%= yield %>
+</div>
 
-  <%= render 'shared/footer' %>
+<%= render 'shared/footer' %>
 
 </body>
 </html>
