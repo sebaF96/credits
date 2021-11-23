@@ -37,7 +37,7 @@
           <div class="card">
             <div class="card-header" id=<%= "heading#{i}" %>>
               <h2 class="mb-0">
-                <button class="btn btn-block text-left btb-raw" type="button" data-toggle="collapse" data-target="#<%= "collapse#{i}" %>" aria-expanded="false" aria-controls="<%= "collapse#{i}" %>">
+                <button class="btn btn-block text-left btn-raw" type="button" data-toggle="collapse" data-target="#<%= "collapse#{i}" %>" aria-expanded="false" aria-controls="<%= "collapse#{i}" %>">
                   <%= @years_str[i] %>
                   <% if (@not_passed.select { |s| s.year.to_i == i }).empty? %>
                     <span class="fa fa-check"></span>
